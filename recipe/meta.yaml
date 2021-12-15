@@ -1,5 +1,5 @@
 {% set name = "mandrake" %}
-{% set version = "1.2.0" %}
+{% set version = "1.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,9 +7,7 @@ package:
 
 source:
   url: https://github.com/johnlees/{{ name|lower }}/archive/v{{ version }}.tar.gz
-  sha256: 264286ee630fd6bdadb632c2eb1bda119992693f13c9a0eac8d4eb42b69a07ae
-  patches:
-    - 0001-Fixes-to-OS-X-and-CUDA-builds.patch
+  sha256: 84e4fa116b851b87344366b035bb37f935b6c6c712c76b80f4926055ad6f6973
 
 build:
   number: 0
@@ -33,6 +31,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
     - cmake >=3.19
+    - make
   host:
     - python
     - pip
