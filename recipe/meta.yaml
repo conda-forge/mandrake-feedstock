@@ -31,6 +31,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
     - cmake >=3.19
+    - make
   host:
     - python
     - pip
