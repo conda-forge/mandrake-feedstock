@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py2k or win or cuda_compiler_version in ("9.2", "10.0", "10.1", "10.2", "11.0")]
+  skip: true  # [py<38 or win or cuda_compiler_version in ("9.2", "10.0", "10.1", "10.2", "11.0")]
   script:
     - export SCE_BUILD_ENV="conda_forge"  # [cuda_compiler_version == "None"]
     - export SCE_BUILD_ENV="conda_forge_cuda"  # [linux64 and cuda_compiler_version != "None"]
