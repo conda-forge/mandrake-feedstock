@@ -1,16 +1,16 @@
 {% set name = "mandrake" %}
-{% set version = "1.2.1" %}
+{% set version = "1.2.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/johnlees/{{ name|lower }}/archive/v{{ version }}.tar.gz
-  sha256: 84e4fa116b851b87344366b035bb37f935b6c6c712c76b80f4926055ad6f6973
+  url: https://github.com/bacpop/{{ name|lower }}/archive/v{{ version }}.tar.gz
+  sha256: 5bbdde903252e2812d4ba484ae474ccc75efbaaf0ace7fe6f37a90e44fe3f0e5
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py2k or win or cuda_compiler_version in ("9.2", "10.0", "10.1", "10.2", "11.0")]
   script:
     - export SCE_BUILD_ENV="conda_forge"  # [cuda_compiler_version == "None"]
@@ -50,7 +50,7 @@ requirements:
     - plotly
     - matplotlib-base
     - hdbscan
-    - pp-sketchlib >=1.7.0
+    - pp-sketchlib >=2.0.0
     - hdf5
     - h5py
     - tqdm
