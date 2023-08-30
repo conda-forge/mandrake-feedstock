@@ -10,7 +10,7 @@ source:
   sha256: 5bbdde903252e2812d4ba484ae474ccc75efbaaf0ace7fe6f37a90e44fe3f0e5
 
 build:
-  number: 2
+  number: 3
   skip: true  # [py<38 or win or cuda_compiler_version in ("9.2", "10.0", "10.1", "10.2", "11.0")]
   script:
     - export SCE_BUILD_ENV="conda_forge"  # [cuda_compiler_version == "None"]
@@ -38,8 +38,9 @@ requirements:
     - pybind11
     - zlib
     - boost-cpp
-    - llvm-openmp  # [osx]
-    - libgomp      # [linux64]
+    - cuda-profiler-api  # [(cuda_compiler_version or "").startswith("12")]
+    - llvm-openmp        # [osx]
+    - libgomp            # [linux64]
   run:
     - python
     - zlib
