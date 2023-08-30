@@ -38,9 +38,9 @@ requirements:
     - pybind11
     - zlib
     - boost-cpp
-    - cuda-profiler-api  # [linux64 and cuda_compiler_version != "None"]
-    - llvm-openmp  # [osx]
-    - libgomp      # [linux64]
+    - cuda-profiler-api  # [(cuda_compiler_version or "").startswith("12")]
+    - llvm-openmp        # [osx]
+    - libgomp            # [linux64]
   run:
     - python
     - zlib
