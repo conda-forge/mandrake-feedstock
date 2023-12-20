@@ -1,7 +1,7 @@
-From ead7e95ddf0e7818481f91b029858389badeafaf Mon Sep 17 00:00:00 2001
+From e70c1c1bef1ff0367bca1139a06e40e1cf2988fb Mon Sep 17 00:00:00 2001
 From: John Lees <lees.john6@gmail.com>
-Date: Wed, 20 Dec 2023 15:50:43 +0000
-Subject: [PATCH] Bump CUDA archs supported by default
+Date: Wed, 20 Dec 2023 16:13:02 +0000
+Subject: [PATCH] Bump CUDA archs
 
 ---
  CMakeLists.txt | 2 +-
@@ -9,18 +9,18 @@ Subject: [PATCH] Bump CUDA archs supported by default
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index d295916..cda30f4 100644
+index 1b8a18d..428e23f 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -46,7 +46,7 @@ if(CMAKE_CUDA_COMPILER)
+ 
      enable_language(CUDA)
      set(CUDA_OPTS "-Wreorder -Xcompiler -fPIC -Xcompiler -Wall -Xcompiler -fopenmp -Xptxas -dlcm=ca --cudart static --relocatable-device-code=false")
-     if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
--            set(CMAKE_CUDA_ARCHITECTURES 70 75 80 86)
-+        set(CMAKE_CUDA_ARCHITECTURES 80 86 90)
-     endif()
+-    string(APPEND CUDA_OPTS " -gencode arch=compute_70,code=sm_70 -gencode arch=compute_75,code=sm_75 -gencode arch=compute_80,code=sm_80 -gencode arch=compute_86,code=sm_86")
++    string(APPEND CUDA_OPTS " -gencode arch=compute_80,code=sm_80 -gencode arch=compute_86,code=sm_86 -gencode arch=compute_90,code=sm_90")
      if(CMAKE_BUILD_TYPE MATCHES Debug)
          string(APPEND CUDA_OPTS " -G")
+     else()
 diff --git a/src/Makefile b/src/Makefile
 index 4ce170d..70d5ac2 100644
 --- a/src/Makefile
