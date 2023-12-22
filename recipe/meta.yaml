@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/bacpop/{{ name|lower }}/archive/v{{ version }}.tar.gz
   sha256: 5bbdde903252e2812d4ba484ae474ccc75efbaaf0ace7fe6f37a90e44fe3f0e5
-  patches:
-    - 0001-Dynamic-link-cuda-rt.patch
 
 build:
   number: 5
@@ -17,7 +15,8 @@ build:
   script:
     - export SCE_BUILD_ENV="conda_forge"  # [cuda_compiler_version == "None"]
     - export SCE_BUILD_ENV="conda_forge_cuda"  # [linux64 and cuda_compiler_version != "None"]
-    - export GENARCH="-gencode arch=compute_80,code=sm_80 -gencode arch=compute_86,code=sm_86 -gencode arch=compute_90,code=sm_90"  # [cuda_compiler_version != "None"]
+    - export GENARCH="-gencode arch=compute_90,code=sm_90"  # [cuda_compiler_version != "None"]
+    - export GENARCH="$GENARCH -gencode arch=compute_90,code=sm_90"  # [(cuda_compiler_version or "").startswith("12")]
     - {{ PYTHON }} -m pip install . --no-deps -vv
   missing_dso_whitelist:
     - '*/libcuda.*'
@@ -34,6 +33,7 @@ requirements:
     - cmake >=3.19
     - make
   host:
+    - cuda-version {{ cuda_compiler_version }}  # [(cuda_compiler_version or "None") != "None"]
     - python
     - pip
     - pybind11
