@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/bacpop/{{ name|lower }}/archive/v{{ version }}.tar.gz
-  sha256: 5bbdde903252e2812d4ba484ae474ccc75efbaaf0ace7fe6f37a90e44fe3f0e5
+  sha256: 094cf535f96ecec4051de26f436c18ec3d944f23e0a05526be9c989788bb7e4c
   patches:
     - non-x86_64.patch  # [aarch64 or ppc64le]
 
