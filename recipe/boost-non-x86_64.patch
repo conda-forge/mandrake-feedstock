@@ -2,7 +2,7 @@ From cf28433ce33fdad7a6fbc751964d037b7ae61fc0 Mon Sep 17 00:00:00 2001
 From: anmol thapar <mr.anmolthapar@gmail.com>
 Date: Mon, 10 Mar 2025 14:15:02 +0000
 Subject: [PATCH] Update Boost package requirement in CMakeLists.txt to remove
- CONFIG option for non-x86_64 platforms
+ CONFIG option for non x86_64 architectures
 
 ---
  CMakeLists.txt | 2 +-
@@ -17,11 +17,7 @@ index 1320976..781894c 100644
  find_package(Python COMPONENTS Interpreter Development REQUIRED)
  find_package(ZLIB REQUIRED)
 -find_package(Boost CONFIG REQUIRED)
-+if(UNIX)
-+  find_package(Boost CONFIG REQUIRED)
-+else()
-+  find_package(Boost REQUIRED)
-+endif()
++find_package(Boost REQUIRED)
  find_package(pybind11 REQUIRED)
  include_directories(${Boost_INCLUDE_DIRS})
  
