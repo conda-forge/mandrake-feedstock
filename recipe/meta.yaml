@@ -64,6 +64,7 @@ requirements:
     - h5py
     - tqdm
     - ffmpeg
+    - boost-cpp
 
 test:
   imports:
