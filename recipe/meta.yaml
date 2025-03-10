@@ -45,10 +45,10 @@ requirements:
     - pip
     - pybind11
     - zlib
+    - libboost-devel
     - cuda-profiler-api  # [(cuda_compiler_version or "").startswith("12")]
     - llvm-openmp        # [osx]
     - libgomp            # [linux64]
-    - boost-cpp
   run:
     - python
     - zlib
@@ -64,6 +64,7 @@ requirements:
     - h5py
     - tqdm
     - ffmpeg
+    - libboost-devel
 
 test:
   imports:
