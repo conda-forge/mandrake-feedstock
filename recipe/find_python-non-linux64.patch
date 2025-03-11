@@ -1,0 +1,24 @@
+From e32bde0f6ebeba47033bc232efe6c5f03a003998 Mon Sep 17 00:00:00 2001
+From: anmol thapar <mr.anmolthapar@gmail.com>
+Date: Tue, 11 Mar 2025 09:45:51 +0000
+Subject: [PATCH] Remove Python package requirement from CMakeLists.txt for non-x86_64
+
+---
+ CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1320976..ea87afa 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -33,7 +33,6 @@ else()
+ endif()
+ 
+ # Add libraries
+-find_package(Python COMPONENTS Interpreter Development REQUIRED)
+ find_package(ZLIB REQUIRED)
+ find_package(Boost CONFIG REQUIRED)
+ find_package(pybind11 REQUIRED)
+-- 
+2.34.1
+
