@@ -10,7 +10,7 @@ source:
   sha256: a21a05dba9964d99c6494c05e719e9c05747cea7f8b9c60bbcd1d4b330c1fef4
   patches:
     - non-x86_64.patch  # [aarch64 or ppc64le]
-    - find_python-non-x86_64.patch  # [not x86_64]
+    - find_python-non-x86_64.patch  # [aarch64 or ppc64le or osx]
 
 build:
   number: 0
