@@ -7,7 +7,7 @@ c_stdlib:
 c_stdlib_version:
 - '2.17'
 channel_sources:
-- conda-forge,conda-forge/label/python_rc
+- conda-forge
 channel_targets:
 - conda-forge main
 cuda_compiler_version:
@@ -19,7 +19,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 libboost_devel:
-- '1.88'
+- '1.90'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -33,7 +33,5 @@ zip_keys:
   - cxx_compiler_version
   - c_stdlib_version
   - cuda_compiler_version
-- - python
-  - channel_sources
 zlib:
 - '1'
