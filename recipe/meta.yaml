@@ -41,7 +41,7 @@ requirements:
     - make
   host:
     - cuda-version {{ cuda_compiler_version }}  # [(cuda_compiler_version or "None") != "None"]
-    - cuda-profiler-api
+    - cuda-profiler-api  # [linux64 and cuda_compiler_version != "None"]
     - python
     - setuptools
     - pip
